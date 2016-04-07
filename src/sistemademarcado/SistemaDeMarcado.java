@@ -21,7 +21,6 @@ public class SistemaDeMarcado {
         login.setResizable(false);
         login.setVisible(true);
         
-       
         // TODO code application logic here
     }
     
