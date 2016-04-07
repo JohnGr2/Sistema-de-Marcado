@@ -15,7 +15,13 @@ public class SistemaDeMarcado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola mundo");
+        
+        Login login = new Login();
+        login.setLocationRelativeTo(null);
+        login.setResizable(false);
+        login.setVisible(true);
+        
+       
         // TODO code application logic here
     }
     
