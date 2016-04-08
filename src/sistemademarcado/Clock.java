@@ -13,13 +13,20 @@ import javax.swing.Timer;
  *
  * @author Carlos Ortega
  */
-public class Clock extends javax.swing.JFrame {
+public class Clock extends javax.swing.JFrame implements Runnable {
+    String hora,minutos,segundos,ampm;
+    Calendar calendario;    
+    Thread h1;
 
     /**
      * Creates new form Clock
      */
     public Clock() {
         initComponents();
+        h1 = new Thread(this);
+    h1.start();
+    setLocationRelativeTo(null);//para centrar la ventana
+    setVisible(true);
     }
 
     /**
@@ -33,19 +40,20 @@ public class Clock extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txtHora = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtMinutos = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtSegundos = new javax.swing.JLabel();
         txtAMPM = new javax.swing.JLabel();
+        txtHour = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         txtDia = new javax.swing.JLabel();
         txtNumDia = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtMes = new javax.swing.JLabel();
         txtMes1 = new javax.swing.JLabel();
         txtAño = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -58,23 +66,13 @@ public class Clock extends javax.swing.JFrame {
             }
         });
 
-        txtHora.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        txtHora.setText("00");
-
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        jLabel2.setText(":");
-
-        txtMinutos.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        txtMinutos.setText("00");
-
-        jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        jLabel4.setText(":");
-
-        txtSegundos.setBackground(new java.awt.Color(51, 102, 255));
-        txtSegundos.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        txtSegundos.setText("00");
+        jPanel1.setBackground(new java.awt.Color(28, 179, 185));
 
         txtAMPM.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        txtHour.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(28, 179, 185));
 
         txtDia.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
 
@@ -90,77 +88,114 @@ public class Clock extends javax.swing.JFrame {
 
         txtAño.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtNumDia, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtMes1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(38, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNumDia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMes1)
+                        .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, txtAño, txtDia, txtMes, txtMes1, txtNumDia});
+
+        jLabel1.setFont(new java.awt.Font("NSimSun", 0, 18)); // NOI18N
+        jLabel1.setText("Cédula");
+
+        jLabel2.setFont(new java.awt.Font("NSimSun", 0, 18)); // NOI18N
+        jLabel2.setText("Código");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Marcar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(txtNumDia, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMes, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMes1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtAño, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addGap(66, 66, 66))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(txtHour)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(175, 175, 175)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtMinutos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtSegundos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(178, 178, 178)
-                    .addComponent(txtFecha)
-                    .addContainerGap(197, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, jTextField1});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtHora)
-                        .addComponent(jLabel2)
-                        .addComponent(txtMinutos)
-                        .addComponent(jLabel4)
-                        .addComponent(txtSegundos))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtHour)
+                    .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNumDia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMes1)
-                    .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(160, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(125, 125, 125)
-                    .addComponent(txtFecha)
-                    .addContainerGap(148, Short.MAX_VALUE)))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(22, 22, 22))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, txtAño, txtDia, txtMes, txtMes1, txtNumDia});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField1, jTextField1});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,22 +222,53 @@ public class Clock extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
 
-        timer = new Timer(1000, new tiempo());
+        timer = new Timer(1000, new fecha());
         timer.start();
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    public class tiempo implements ActionListener
+    @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+        while(ct == h1) 
+        {   
+            calcula();
+            txtHour.setText(hora + " : " + minutos + " : " + segundos);
+            try 
+                {
+                    Thread.sleep(1000);
+                }
+        catch(InterruptedException e) {}
+        }
+    }
+    
+    public void calcula()
+    {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM?"AM":"PM";
+        if(ampm.equals("PM"))
+        {
+            int h = calendario.get(Calendar.HOUR_OF_DAY)-12;
+            hora = h>9?""+h:"0"+h;
+        }
+        else
+        {
+            hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);            
+        }
+        minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+    }
+    
+    public class fecha implements ActionListener
     {
         public void actionPerformed(ActionEvent evt)
         {
             GregorianCalendar time = new GregorianCalendar();
-            int hora, minutos, segundos;
             String meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
             String dias[] = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
-            hora = time.get(Calendar.HOUR);
-            minutos = time.get(Calendar.MINUTE);
-            segundos = time.get(Calendar.SECOND);
+            
             int dia = time.get(Calendar.DAY_OF_MONTH);
             int diaSemana = time.get(Calendar.DAY_OF_WEEK);
             int mes = time.get(Calendar.MONTH);
@@ -213,22 +279,7 @@ public class Clock extends javax.swing.JFrame {
             txtNumDia.setText(String.valueOf(dia));
             txtMes.setText(String.valueOf(meses[mes]));
             txtAño.setText(String.valueOf(año));
-            if (hora == 0)
-            {
-                txtHora.setText("12");
-            }
-            else
-            {
-                txtHora.setText(String.valueOf(hora));
-            }
-            if (segundos < 10)
-            {
-                txtSegundos.setText("0" + String.valueOf(segundos));
-            }
-            else
-            {
-                txtMinutos.setText(String.valueOf(minutos));
-            }
+           
             if (ampm == 0)
             {
                 txtAMPM.setText("AM");
@@ -237,10 +288,6 @@ public class Clock extends javax.swing.JFrame {
             {
                 txtAMPM.setText("PM");
             }
-            
-            
-            txtSegundos.setText(String.valueOf(segundos));
-            
         }
     }
     
@@ -283,20 +330,21 @@ public class Clock extends javax.swing.JFrame {
     private Timer timer;
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel txtAMPM;
     private javax.swing.JLabel txtAño;
     private javax.swing.JLabel txtDia;
-    private javax.swing.JLabel txtFecha;
-    private javax.swing.JLabel txtHora;
+    private javax.swing.JLabel txtHour;
     private javax.swing.JLabel txtMes;
     private javax.swing.JLabel txtMes1;
-    private javax.swing.JLabel txtMinutos;
     private javax.swing.JLabel txtNumDia;
-    private javax.swing.JLabel txtSegundos;
     // End of variables declaration//GEN-END:variables
 }
