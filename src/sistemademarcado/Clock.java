@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package sistemademarcado;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.ImageObserver;
 import java.text.SimpleDateFormat;
 import javax.swing.Timer;
+import javax.swing.*;
 /**
  *
  * @author Carlos Ortega
@@ -17,12 +23,14 @@ public class Clock extends javax.swing.JFrame implements Runnable {
     String hora,minutos,segundos,ampm;
     Calendar calendario;    
     Thread h1;
+    Graphics g = null;
 
     /**
      * Creates new form Clock
      */
     public Clock() {
         initComponents();
+
         h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);//para centrar la ventana
@@ -156,6 +164,11 @@ public class Clock extends javax.swing.JFrame implements Runnable {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemademarcado/uamlogo.png"))); // NOI18N
 
         jButton2.setText("Cambiar contraseña");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Ver estado");
 
@@ -182,7 +195,7 @@ public class Clock extends javax.swing.JFrame implements Runnable {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(198, 198, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(txtHour)
@@ -198,7 +211,7 @@ public class Clock extends javax.swing.JFrame implements Runnable {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(txtHour)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,6 +259,13 @@ public class Clock extends javax.swing.JFrame implements Runnable {
         timer = new Timer(1000, new fecha());
         timer.start();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        dispose();
+        new newPass().setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     @Override
     public void run() {
@@ -300,10 +320,20 @@ public class Clock extends javax.swing.JFrame implements Runnable {
             if (ampm == 0)
             {
                 txtAMPM.setText("AM");
+                Image im;
+                im = Toolkit.getDefaultToolkit().getImage("Sun.png");
+                setSize(new Dimension(50, 50));
+                setLocation(1,1);
+                    
+//                ImageIcon imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagen/Sun.png")).getImage());
+//                g.drawImage(imagen.getImage(), 1, 1, 50, 50, null);
             }
             else
             {
                 txtAMPM.setText("PM");
+                
+//                ImageIcon imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagen/Moon.png")).getImage());
+//                g.drawImage(imagen.getImage(), 1, 1, 50, 50, null);
             }
         }
     }
