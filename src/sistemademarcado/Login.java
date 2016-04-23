@@ -6,8 +6,7 @@
 package sistemademarcado;
 
 /**
- *
- * @author Carlos Ortega
+ * @author Carlos Ortega / John Granados
  */
 public class Login extends javax.swing.JFrame {
 
@@ -56,6 +55,8 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 166, 173));
         jButton1.setText("ENTRAR");
+
+        jPasswordField1.setEchoChar('•');
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
