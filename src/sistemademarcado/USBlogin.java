@@ -12,39 +12,57 @@ public class USBlogin {
 
     public void usblogin() {
 
-        String s = "";
+        String s[] = new String[7];
         String line = null;
-        String[] array = {"A86B-A918"};
-        String[] DriveLetters ={"E","F","G","H","I","J"};
-        
-        try {
-            Process p = Runtime.getRuntime().exec("cmd /C vol "+DriveLetters[2]+":");
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(p.getInputStream()));
+        String[] array = {"A86B-A918", "207D-46AA","4C52-6F65"};
+        String[] DriveLetters = {"D", "E", "F", "G", "H", "I", "J"};
+        boolean comprobar = false;
 
-            while ((line = in.readLine()) != null) {
-                s = line;
+        for (int i = 0; i < DriveLetters.length; i++) {
+
+            try {
+                Process p = Runtime.getRuntime().exec("cmd /C vol " + DriveLetters[i] + ":");
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(p.getInputStream()));
+
+                while ((line = in.readLine()) != null) {
+                    s[i] = line;
+                }
+                p.destroy();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            s[i] = s[i].replace("Volume Serial Number is ", "");
+            s[i] = s[i].trim();
+
+        }
+
+        for (int i = 0; i < s.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+
+                if (s[i].equals(array[j])) {
+                    //new Login().setVisible(true);
+                    comprobar = true;
+                } 
                 
-            }
-            p.destroy();
+                if (comprobar == true) {
+                    new Login().setVisible(true);
+                    break;
+                }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        s = s.replace("Volume Serial Number is ", "");
-        s = s.trim();
-        System.out.println(s);
-
-        for (int i = 0; i < array.length; i++) {
-
-            if (s.equals(array[i])) {
-
-                new Login().setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Usb Key no válido", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-
+        
+         if (comprobar == true) {
+            new Login().setVisible(true);
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(null, "Usb Key no válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+       
     }
 }
