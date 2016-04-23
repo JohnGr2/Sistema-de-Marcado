@@ -16,10 +16,8 @@ public class SistemaDeMarcado {
      */
     public static void main(String[] args) {
         
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setResizable(false);
-        login.setVisible(true);
+        USBlogin login = new USBlogin();
+        login.usblogin();
         
         // TODO code application logic here
     }
