@@ -22,9 +22,9 @@ public class USBlogin {
             system_mensaje = "Volume Serial Number is ";
         }
         else{
-            system_mensaje = "El número de serie del volumen es: ";
+            system_mensaje = "El n�mero de serie del volumen es: ";
         }
-            
+        
         String s[] = new String[7];
         String line = null;
         String[] array = {"A86B-A918", "207D-46AA","4C52-6F65"};
@@ -52,6 +52,7 @@ public class USBlogin {
 
         }
 
+        
         for (int i = 0; i < s.length; i++) {
             for (int j = 0; j < array.length; j++) {
 
