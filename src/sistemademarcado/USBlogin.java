@@ -3,6 +3,7 @@ package sistemademarcado;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,7 +12,19 @@ import javax.swing.JOptionPane;
 public class USBlogin {
 
     public void usblogin() {
-
+        
+        Locale locale = Locale.getDefault();
+        String lang = locale.getDisplayLanguage();
+        String system_mensaje = "";
+        
+        if (lang.equals("English")) {
+            
+            system_mensaje = "Volume Serial Number is ";
+        }
+        else{
+            system_mensaje = "El número de serie del volumen es: ";
+        }
+            
         String s[] = new String[7];
         String line = null;
         String[] array = {"A86B-A918", "207D-46AA","4C52-6F65"};
@@ -34,7 +47,7 @@ public class USBlogin {
                 e.printStackTrace();
             }
 
-            s[i] = s[i].replace("Volume Serial Number is ", "");
+            s[i] = s[i].replace(system_mensaje, "");
             s[i] = s[i].trim();
 
         }
