@@ -76,6 +76,11 @@ public class newPass extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,21 +157,40 @@ public class newPass extends javax.swing.JFrame {
         if(Arrays.equals(passVieja, passNueva))
         {
             JOptionPane.showMessageDialog(null, "La nueva contraseña no puede ser igual que la anterior", "Error", JOptionPane.ERROR_MESSAGE);
+            txtPassVieja.requestFocus();
+            txtPassVieja.setText("");
+            txtPassNueva.setText("");
+            txtPassVeri.setText("");
+            txtPassVieja.requestFocus();
         }
         else
         {
             if(Arrays.equals(passNueva, passVeri))
             {
                 JOptionPane.showMessageDialog(null, "Contraseña Actualizada", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+                new Clock().setVisible(true);
             }
         else
             {
                 JOptionPane.showMessageDialog(null, "Contraseñas diferentes", "Error", JOptionPane.ERROR_MESSAGE);
+                txtPassNueva.requestFocus();
+                txtPassNueva.setText("");
+                txtPassVeri.setText("");
             }
         }
         
+        
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+
+        dispose();
+        new Clock().setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

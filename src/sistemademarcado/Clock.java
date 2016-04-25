@@ -30,7 +30,11 @@ public class Clock extends javax.swing.JFrame implements Runnable {
      */
     public Clock() {
         initComponents();
-
+        ImageIcon imagenSol = new ImageIcon("src/Imagen/Sun.png");
+        ImageIcon imagenLuna = new ImageIcon("src/imagen/Moon.png");
+        Icon iconoSol = new ImageIcon(imagenSol.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
+        Icon iconoLuna = new ImageIcon(imagenLuna.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
+        txtCedula.requestFocus();
         h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);//para centrar la ventana
@@ -59,13 +63,14 @@ public class Clock extends javax.swing.JFrame implements Runnable {
         txtMes1 = new javax.swing.JLabel();
         txtAño = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassCod = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        lblImagen = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -155,7 +160,7 @@ public class Clock extends javax.swing.JFrame implements Runnable {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Código");
 
-        jPasswordField1.setEchoChar('•');
+        txtPassCod.setEchoChar('•');
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Marcar");
@@ -179,13 +184,15 @@ public class Clock extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 108, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,14 +209,19 @@ public class Clock extends javax.swing.JFrame implements Runnable {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, jTextField1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCedula, txtPassCod});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
                 .addComponent(txtHour)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(txtAMPM, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,11 +230,11 @@ public class Clock extends javax.swing.JFrame implements Runnable {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPassCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(48, 48, 48)
@@ -232,7 +244,7 @@ public class Clock extends javax.swing.JFrame implements Runnable {
                 .addGap(25, 25, 25))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField1, jTextField1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCedula, txtPassCod});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -302,6 +314,10 @@ public class Clock extends javax.swing.JFrame implements Runnable {
     {
         public void actionPerformed(ActionEvent evt)
         {
+            ImageIcon imagenSol = new ImageIcon("src/Imagen/Sol.png");
+            ImageIcon imagenLuna = new ImageIcon("src/imagen/Luna.png");
+            Icon iconoSol = new ImageIcon(imagenSol.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
+            Icon iconoLuna = new ImageIcon(imagenLuna.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
             GregorianCalendar time = new GregorianCalendar();
             String meses[] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
             String dias[] = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
@@ -319,21 +335,13 @@ public class Clock extends javax.swing.JFrame implements Runnable {
            
             if (ampm == 0)
             {
-                txtAMPM.setText("AM");
-                Image im;
-                im = Toolkit.getDefaultToolkit().getImage("Sun.png");
-                setSize(new Dimension(50, 50));
-                setLocation(1,1);
-                    
-//                ImageIcon imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagen/Sun.png")).getImage());
-//                g.drawImage(imagen.getImage(), 1, 1, 50, 50, null);
+                txtAMPM.setText("AM");    
+                lblImagen.setIcon(iconoSol);
             }
             else
             {
                 txtAMPM.setText("PM");
-                
-//                ImageIcon imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagen/Moon.png")).getImage());
-//                g.drawImage(imagen.getImage(), 1, 1, 50, 50, null);
+                lblImagen.setIcon(iconoLuna);
             }
         }
     }
@@ -387,14 +395,15 @@ public class Clock extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel txtAMPM;
     private javax.swing.JLabel txtAño;
+    private javax.swing.JTextField txtCedula;
     private javax.swing.JLabel txtDia;
     private javax.swing.JLabel txtHour;
     private javax.swing.JLabel txtMes;
     private javax.swing.JLabel txtMes1;
     private javax.swing.JLabel txtNumDia;
+    private javax.swing.JPasswordField txtPassCod;
     // End of variables declaration//GEN-END:variables
 }
