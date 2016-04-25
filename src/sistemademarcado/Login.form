@@ -69,9 +69,9 @@
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jPasswordField1" linkSize="1" pref="133" max="32767" attributes="0"/>
-                              <Component id="jTextField1" linkSize="1" max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="txt_pass" linkSize="1" pref="133" max="32767" attributes="0"/>
+                              <Component id="txt_usuario" linkSize="1" max="32767" attributes="0"/>
+                              <Component id="btn_entrar" min="-2" pref="137" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -88,13 +88,13 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTextField1" linkSize="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_usuario" linkSize="2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" linkSize="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_pass" linkSize="2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="btn_entrar" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -126,7 +126,12 @@
             <Property name="text" type="java.lang.String" value="CONTRASE&#xd1;A"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txt_usuario">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="12" style="1"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="logo_uam">
           <Properties>
@@ -135,7 +140,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btn_entrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -148,8 +153,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ENTRAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_entrarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="txt_pass">
           <Properties>
             <Property name="echoChar" type="char" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&apos;&#x2022;&apos;" type="code"/>

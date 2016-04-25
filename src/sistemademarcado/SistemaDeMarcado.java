@@ -8,7 +8,6 @@ package sistemademarcado;
 import java.util.Locale;
 
 /**
- *
  * @author JGran
  */
 public class SistemaDeMarcado {
@@ -20,8 +19,7 @@ public class SistemaDeMarcado {
         
         USBlogin login = new USBlogin();
         login.usblogin();
-        
-        // TODO code application logic here
+       
     }
     
 }

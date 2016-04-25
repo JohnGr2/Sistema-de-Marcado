@@ -77,6 +77,5 @@ public class USBlogin {
             JOptionPane.showMessageDialog(null, "Usb Key no válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
-       
     }
 }
