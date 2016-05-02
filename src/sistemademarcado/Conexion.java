@@ -13,7 +13,7 @@ public class Conexion {
    
     //****** DATOS DE LA CONEXION **********************
     public String servidor = "localhost";
-    public String nameDB = "marcado";
+    public String nameDB = "sistema_marcado";
     public String login = "root";
     public String password = "123";
     //**************************************************
