@@ -61,10 +61,10 @@ public class USBlogin {
                     comprobar = true;
                 } 
                 
-                if (comprobar == true) {
-                    new Login().setVisible(true);
-                    break;
-                }
+//                if (comprobar == true) {
+//                    new Login().setVisible(true);
+//                    break;
+//                }
 
             }
         }

@@ -67,6 +67,11 @@ public class Registro extends javax.swing.JFrame {
         idpersonal_txt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         area_cbx = new javax.swing.JComboBox<>();
+        tipo_cbx = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -172,30 +177,30 @@ public class Registro extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(11).setResizable(false);
         }
 
-        guardar_btn.setText("Guardar");
+        guardar_btn.setIcon(new javax.swing.ImageIcon("C:\\Users\\JGran\\Pictures\\save.png")); // NOI18N
         guardar_btn.setToolTipText("");
-        guardar_btn.setPreferredSize(new java.awt.Dimension(171, 105));
+        guardar_btn.setPreferredSize(new java.awt.Dimension(50, 50));
         guardar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardar_btnActionPerformed(evt);
             }
         });
 
-        modificar_btn.setText("Modificar");
+        modificar_btn.setIcon(new javax.swing.ImageIcon("C:\\Users\\JGran\\Pictures\\edit.png")); // NOI18N
         modificar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificar_btnActionPerformed(evt);
             }
         });
 
-        eliminar_btn.setText("Eliminar");
+        eliminar_btn.setIcon(new javax.swing.ImageIcon("C:\\Users\\JGran\\Pictures\\eliminar.png")); // NOI18N
         eliminar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminar_btnActionPerformed(evt);
             }
         });
 
-        cancelar_btn.setText("Cancelar");
+        cancelar_btn.setIcon(new javax.swing.ImageIcon("C:\\Users\\JGran\\Pictures\\cancelar.png")); // NOI18N
         cancelar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelar_btnActionPerformed(evt);
@@ -214,6 +219,33 @@ public class Registro extends javax.swing.JFrame {
         area_cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Académico", "Administración", "Contabilidad", "Informática", "Seguridad", "Limpieza", "Audiovisual", "Legal" }));
         area_cbx.setToolTipText("");
 
+        tipo_cbx.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tipo_cbx.setForeground(new java.awt.Color(0, 153, 0));
+        tipo_cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        tipo_cbx.setSelectedIndex(1);
+        tipo_cbx.setToolTipText("");
+        tipo_cbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipo_cbxActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Guardar");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Modificar");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Eliminar");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Cancelar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -222,95 +254,113 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(apellido_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(apellido_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(dir_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dir_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ced_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ced_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pass_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pass_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(fechnac_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechnac_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(area_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(area_cbx, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tipo_cbx, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(307, 307, 307))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(idpersonal_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idpersonal_txt)
-                            .addComponent(nombre_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cargo_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(48, 48, 48))
-                            .addComponent(nac_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tel_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(30, 30, 30))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cel_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(42, 42, 42))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(email_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(47, 47, 47))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(genero_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(40, 40, 40)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(apellido_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(16, 16, 16))
-                            .addComponent(cargo_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nac_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tel_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cel_txt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(email_txt, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(guardar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modificar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(eliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(apellido_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(dir_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dir_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ced_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ced_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(pass_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pass_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(fechnac_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fechnac_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(area_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(area_cbx, 0, 240, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nombre_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                    .addComponent(idpersonal_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idpersonal_txt)
+                                    .addComponent(nombre_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(guardar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(modificar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(eliminar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cancelar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(57, 57, 57)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(109, 109, 109))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(cargo_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(48, 48, 48))
+                                    .addComponent(nac_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tel_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(cel_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(42, 42, 42))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(email_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(47, 47, 47))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(genero_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(40, 40, 40)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cargo_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(nac_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(tel_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(cel_txt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(email_txt, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(79, 79, 79))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jRadioButton1)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(44, 44, 44))))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(356, 356, 356)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(307, 307, 307))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
-                .addGap(10, 10, 10))
+                .addContainerGap())
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelar_btn, eliminar_btn, guardar_btn, modificar_btn});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(tipo_cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargo_lbl)
@@ -319,33 +369,6 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(idpersonal_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nac_lbl)
-                            .addComponent(nac_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tel_lbl)
-                            .addComponent(tel_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cel_lbl)
-                            .addComponent(cel_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(email_lbl)
-                            .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(genero_lbl)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modificar_btn)
-                            .addComponent(eliminar_btn)
-                            .addComponent(cancelar_btn)
-                            .addComponent(guardar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nombre_lbl)
@@ -373,15 +396,46 @@ public class Registro extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(area_lbl)
-                            .addComponent(area_cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                            .addComponent(area_cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nac_lbl)
+                            .addComponent(nac_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tel_lbl)
+                            .addComponent(tel_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cel_lbl)
+                            .addComponent(cel_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(email_lbl)
+                            .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(genero_lbl)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton2))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modificar_btn)
+                            .addComponent(eliminar_btn)
+                            .addComponent(cancelar_btn)
+                            .addComponent(guardar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))))
+                .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {apellido_txt, cargo_txt, ced_txt, cel_txt, dir_txt, email_txt, fechnac_txt, nac_txt, nombre_txt, pass_txt, tel_txt});
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelar_btn, eliminar_btn, guardar_btn, modificar_btn});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -409,121 +463,37 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelar_btnActionPerformed
 
-    private void guardar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_btnActionPerformed
-
-        try {
-
-            String myDriver = "org.gjt.mm.mysql.Driver";
-            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
-
-            String nombre = nombre_txt.getText();
-            String apellido = apellido_txt.getText();
-            String direccion = dir_txt.getText();
-            String cedula = ced_txt.getText();
-            char[] pass = pass_txt.getPassword();
-            String passString = new String(pass);
-            String fechnac = fechnac_txt.getText();
-            String area = (String) area_cbx.getSelectedItem();
-            String cargo = cargo_txt.getText();
-            String nacionalidad = nac_txt.getText();
-            String telefono = tel_txt.getText();
-            String celular = cel_txt.getText();
-            String email = email_txt.getText();
-            String genero = "";
-            if (jRadioButton1.isSelected()) {
-                genero = jRadioButton1.getText();
-            } else {
-                genero = jRadioButton2.getText();
-            }
-            String query = " insert into personal (id_personal,nombre_personal, apellido_personal, direccion_personal, cedula_personal, pass_personal,fechnac_personal,area_personal,cargo_personal,nacionalidad_personal,telefono_personal,celular_personal,email_personal,genero_personal)"
-                    + "values (NULL,'" + nombre + "', '" + apellido + "','" + direccion + "','" + cedula + "','" + passString + "','" + fechnac + "','" + area + "','" + cargo + "','" + nacionalidad + "','" + telefono + "',"
-                    + "'" + celular + "','" + email + "','" + genero + "');";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.execute();
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception!");
-            System.err.println(e.getMessage());
-        }
-
-        actualizar();
-    }//GEN-LAST:event_guardar_btnActionPerformed
-
     private void eliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btnActionPerformed
 
         Conexion CONN = new Conexion();
-        String idpersonal = idpersonal_txt.getText();
-        CONN.CONECTAR();
-        CONN.EJECUTAR("DELETE FROM personal WHERE id_personal = " + idpersonal + "");
-        CONN.CERRAR();
-        JOptionPane.showMessageDialog(null, "¡Registro borrado exitosamente!");
-        limpiar();
-        actualizar();
+        String Tipo = (String) tipo_cbx.getSelectedItem();
+
+        if (Tipo.equals("Usuario")) {
+            String idpersonal = idpersonal_txt.getText();
+            CONN.CONECTAR();
+            CONN.EJECUTAR("DELETE FROM personal WHERE id_personal = " + idpersonal + "");
+            CONN.CERRAR();
+            JOptionPane.showMessageDialog(null, "¡Registro borrado exitosamente!");
+            limpiar();
+            actualizar();
+        }
+
+        else{
+            String idpersonal = idpersonal_txt.getText();
+            CONN.CONECTAR();
+            CONN.EJECUTAR("DELETE FROM admin WHERE id_admin = " + idpersonal + "");
+            CONN.CERRAR();
+            JOptionPane.showMessageDialog(null, "¡Registro borrado exitosamente!");
+            limpiar();
+            actualizar();
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_eliminar_btnActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-
-        try {
-
-            int row = jTable1.getSelectedRow();
-            String Table_click = (jTable1.getModel().getValueAt(row, 0).toString());
-
-            Conexion CONN = new Conexion();
-            CONN.CONECTAR();
-            ResultSet rs = CONN.CONSULTAR("SELECT * FROM personal WHERE id_personal='" + Table_click + "'");
-
-            if (rs.next()) {
-
-                String id = rs.getString("id_personal");
-                idpersonal_txt.setText(id);
-                String nombre = rs.getString("nombre_personal");
-                nombre_txt.setText(nombre);
-                String apellido = rs.getString("apellido_personal");
-                apellido_txt.setText(apellido);
-                String direccion = rs.getString("direccion_personal");
-                dir_txt.setText(direccion);
-                String cedula = rs.getString("cedula_personal");
-                ced_txt.setText(cedula);
-                String pass = rs.getString("pass_personal");
-                pass_txt.setText(pass);
-                String fechnac = rs.getString("fechnac_personal");
-                fechnac_txt.setText(fechnac);
-                String area = rs.getString("area_personal");
-                area_cbx.setSelectedItem(area);
-                String cargo = rs.getString("cargo_personal");
-                cargo_txt.setText(cargo);
-                String nacionalidad = rs.getString("nacionalidad_personal");
-                nac_txt.setText(nacionalidad);
-                String telefono = rs.getString("telefono_personal");
-                tel_txt.setText(telefono);
-                String celular = rs.getString("celular_personal");
-                cel_txt.setText(celular);
-                String email = rs.getString("email_personal");
-                email_txt.setText(apellido);
-                String genero = rs.getString("genero_personal");
-                if (genero.equals("Masculino")) {
-                    jRadioButton1.setSelected(true);
-                }
-                else{
-                    jRadioButton2.setSelected(true);
-                }
-
-                CONN.CERRAR();
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void modificar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_btnActionPerformed
 
+        String Tipo = (String) tipo_cbx.getSelectedItem();
         String id = idpersonal_txt.getText();
         String nombre = nombre_txt.getText();
         String apellido = apellido_txt.getText();
@@ -546,26 +516,207 @@ public class Registro extends javax.swing.JFrame {
         }
 
         try {
+
             String myDriver = "org.gjt.mm.mysql.Driver";
             String myUrl = "jdbc:mysql://localhost/sistema_marcado";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl, "root", "123");
 
-            String query = ("UPDATE sistema_marcado.personal SET nombre_personal = '" + nombre + "', apellido_personal='" + apellido + "',"
+            if (Tipo.equals("Usuario")) {
+                String query = ("UPDATE sistema_marcado.personal SET nombre_personal = '" + nombre + "', apellido_personal='" + apellido + "',"
                     + "direccion_personal = '" + direccion + "',cedula_personal = '" + cedula + "',pass_personal = '" + passString + "',fechnac_personal = '" + fechnac + "',area_personal = '" + area + "',"
                     + "cargo_personal= '" + cargo + "',nacionalidad_personal = '" + nacionalidad + "',telefono_personal = '" + telefono + "',celular_personal ='" + celular + "',email_personal = '" + email + "',genero_personal = '" + genero + "'"
                     + "WHERE personal.id_personal = '" + id + "';");
 
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.execute();
-            conn.close();
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.execute();
+                conn.close();
+            }
+
+            else{
+                String query = ("UPDATE sistema_marcado.admin SET nombre_admin = '" + nombre + "', apellido_admin='" + apellido + "',"
+                    + "direccion_admin = '" + direccion + "',cedula_admin = '" + cedula + "',pass_admin = '" + passString + "',fechnac_admin = '" + fechnac + "',area_admin = '" + area + "',"
+                    + "cargo_admin= '" + cargo + "',nacionalidad_admin = '" + nacionalidad + "',telefono_admin = '" + telefono + "',celular_admin ='" + celular + "',email_admin = '" + email + "',genero_admin = '" + genero + "'"
+                    + "WHERE personal.id_admin = '" + id + "';");
+
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.execute();
+                conn.close();
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
         actualizar();
-
     }//GEN-LAST:event_modificar_btnActionPerformed
+
+    private void guardar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_btnActionPerformed
+
+        try {
+
+            String myDriver = "org.gjt.mm.mysql.Driver";
+            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
+
+            String Tipo = (String) tipo_cbx.getSelectedItem();
+            String nombre = nombre_txt.getText();
+            String apellido = apellido_txt.getText();
+            String direccion = dir_txt.getText();
+            String cedula = ced_txt.getText();
+            char[] pass = pass_txt.getPassword();
+            String passString = new String(pass);
+            String fechnac = fechnac_txt.getText();
+            String area = (String) area_cbx.getSelectedItem();
+            String cargo = cargo_txt.getText();
+            String nacionalidad = nac_txt.getText();
+            String telefono = tel_txt.getText();
+            String celular = cel_txt.getText();
+            String email = email_txt.getText();
+            String genero = "";
+            if (jRadioButton1.isSelected()) {
+                genero = jRadioButton1.getText();
+            } else {
+                genero = jRadioButton2.getText();
+            }
+
+            if (Tipo.equals("Usuario")) {
+                String query = " insert into personal (id_personal,nombre_personal, apellido_personal, direccion_personal, cedula_personal, pass_personal,fechnac_personal,area_personal,cargo_personal,nacionalidad_personal,telefono_personal,celular_personal,email_personal,genero_personal)"
+                + "values (NULL,'" + nombre + "', '" + apellido + "','" + direccion + "','" + cedula + "','" + passString + "','" + fechnac + "','" + area + "','" + cargo + "','" + nacionalidad + "','" + telefono + "',"
+                + "'" + celular + "','" + email + "','" + genero + "');";
+
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.execute();
+                conn.close();
+            }
+
+            else{
+                String query = " insert into admin (id_admin,nombre_admin, apellido_admin, direccion_admin, cedula_admin, pass_admin,fechnac_admin,area_admin,cargo_admin,nacionalidad_admin,telefono_admin,celular_admin,email_admin,genero_admin)"
+                + "values (NULL,'" + nombre + "', '" + apellido + "','" + direccion + "','" + cedula + "','" + passString + "','" + fechnac + "','" + area + "','" + cargo + "','" + nacionalidad + "','" + telefono + "',"
+                + "'" + celular + "','" + email + "','" + genero + "');";
+
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.execute();
+                conn.close();
+
+            }
+
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        }
+
+        actualizar();
+    }//GEN-LAST:event_guardar_btnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+        try {
+
+            String Tipo = (String) tipo_cbx.getSelectedItem();
+            int row = jTable1.getSelectedRow();
+            String Table_click = (jTable1.getModel().getValueAt(row, 0).toString());
+
+            Conexion CONN = new Conexion();
+            CONN.CONECTAR();
+
+            if (Tipo.equals("Usuario")) {
+                ResultSet rs = CONN.CONSULTAR("SELECT * FROM personal WHERE id_personal='" + Table_click + "'");
+
+                if (rs.next()) {
+
+                    String id = rs.getString("id_personal");
+                    idpersonal_txt.setText(id);
+                    String nombre = rs.getString("nombre_personal");
+                    nombre_txt.setText(nombre);
+                    String apellido = rs.getString("apellido_personal");
+                    apellido_txt.setText(apellido);
+                    String direccion = rs.getString("direccion_personal");
+                    dir_txt.setText(direccion);
+                    String cedula = rs.getString("cedula_personal");
+                    ced_txt.setText(cedula);
+                    String pass = rs.getString("pass_personal");
+                    pass_txt.setText(pass);
+                    String fechnac = rs.getString("fechnac_personal");
+                    fechnac_txt.setText(fechnac);
+                    String area = rs.getString("area_personal");
+                    area_cbx.setSelectedItem(area);
+                    String cargo = rs.getString("cargo_personal");
+                    cargo_txt.setText(cargo);
+                    String nacionalidad = rs.getString("nacionalidad_personal");
+                    nac_txt.setText(nacionalidad);
+                    String telefono = rs.getString("telefono_personal");
+                    tel_txt.setText(telefono);
+                    String celular = rs.getString("celular_personal");
+                    cel_txt.setText(celular);
+                    String email = rs.getString("email_personal");
+                    email_txt.setText(apellido);
+                    String genero = rs.getString("genero_personal");
+                    if (genero.equals("Masculino")) {
+                        jRadioButton1.setSelected(true);
+                    }
+                    else{
+                        jRadioButton2.setSelected(true);
+                    }
+
+                    CONN.CERRAR();
+
+                }
+            }
+            else{
+                ResultSet rs = CONN.CONSULTAR("SELECT * FROM admin WHERE id_admin='" + Table_click + "'");
+
+                if (rs.next()) {
+
+                    String id = rs.getString("id_admin");
+                    idpersonal_txt.setText(id);
+                    String nombre = rs.getString("nombre_admin");
+                    nombre_txt.setText(nombre);
+                    String apellido = rs.getString("apellido_admin");
+                    apellido_txt.setText(apellido);
+                    String direccion = rs.getString("direccion_admin");
+                    dir_txt.setText(direccion);
+                    String cedula = rs.getString("cedula_admin");
+                    ced_txt.setText(cedula);
+                    String pass = rs.getString("pass_admin");
+                    pass_txt.setText(pass);
+                    String fechnac = rs.getString("fechnac_admin");
+                    fechnac_txt.setText(fechnac);
+                    String area = rs.getString("area_admin");
+                    area_cbx.setSelectedItem(area);
+                    String cargo = rs.getString("cargo_admin");
+                    cargo_txt.setText(cargo);
+                    String nacionalidad = rs.getString("nacionalidad_admin");
+                    nac_txt.setText(nacionalidad);
+                    String telefono = rs.getString("telefono_admin");
+                    tel_txt.setText(telefono);
+                    String celular = rs.getString("celular_admin");
+                    cel_txt.setText(celular);
+                    String email = rs.getString("email_admin");
+                    email_txt.setText(apellido);
+                    String genero = rs.getString("genero_admin");
+                    if (genero.equals("Masculino")) {
+                        jRadioButton1.setSelected(true);
+                    }
+                    else{
+                        jRadioButton2.setSelected(true);
+                    }
+
+                    CONN.CERRAR();
+
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void tipo_cbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_cbxActionPerformed
+        actualizar();        // TODO add your handling code here:
+    }//GEN-LAST:event_tipo_cbxActionPerformed
 
     public void limpiar() {
 
@@ -585,12 +736,23 @@ public class Registro extends javax.swing.JFrame {
     }
 
     public void actualizar() {
+        String Tipo = (String) tipo_cbx.getSelectedItem();
         Conexion CONN = new Conexion();
         CONN.CONECTAR();
-        ResultSet rs = CONN.CONSULTAR("SELECT id_personal AS ID, nombre_personal AS Nombre, direccion_personal AS Dirección, cedula_personal AS Cédula, pass_personal AS Contraseña,"
+        
+        if (Tipo.equals("Usuario")) {
+            ResultSet rs = CONN.CONSULTAR("SELECT id_personal AS ID, nombre_personal AS Nombre, direccion_personal AS Dirección, cedula_personal AS Cédula, pass_personal AS Contraseña,"
                 + "fechnac_personal AS Fecha, area_personal AS Área, cargo_personal AS Cargo, nacionalidad_personal AS Nacionalidad, telefono_personal AS Teléfono,"
                 + "celular_personal AS Celular, email_personal AS Email, genero_personal AS Género FROM personal order by id_personal ASC");
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        else{
+            ResultSet rs = CONN.CONSULTAR("SELECT id_admin AS ID, nombre_admin AS Nombre, direccion_admin AS Dirección, cedula_admin AS Cédula, pass_admin AS Contraseña,"
+                + "fechnac_admin AS Fecha, area_admin AS Área, cargo_admin AS Cargo, nacionalidad_admin AS Nacionalidad, telefono_admin AS Teléfono,"
+                + "celular_admin AS Celular, email_admin AS Email, genero_admin AS Género FROM admin order by id_admin ASC");
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        }
     }
 
     /**
@@ -658,6 +820,10 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel idpersonal_lbl;
     private javax.swing.JTextField idpersonal_txt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
@@ -674,5 +840,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPasswordField pass_txt;
     private javax.swing.JLabel tel_lbl;
     private javax.swing.JTextField tel_txt;
+    private javax.swing.JComboBox<String> tipo_cbx;
     // End of variables declaration//GEN-END:variables
 }

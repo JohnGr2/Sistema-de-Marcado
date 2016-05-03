@@ -139,16 +139,17 @@ public class Login extends javax.swing.JFrame {
         String usuario = txt_usuario.getText();
         char[] password = txt_pass.getPassword();
 
-        ResultSet rs = CONN.CONSULTAR("SELECT Admin_usuario, Admin_pass FROM `admin` WHERE Admin_usuario = '" + usuario + "' && Admin_pass = '" + String.valueOf(password) + "';");
+        ResultSet rs = CONN.CONSULTAR("SELECT cedula_admin, pass_admin FROM `admin` WHERE cedula_admin = '" + usuario + "' && pass_admin = '" + String.valueOf(password) + "';");
 
         try {
             if (rs.next()) {
 
                 JOptionPane.showMessageDialog(null, "Login exitoso!");
                 CONN.CERRAR();
+                dispose();
 
-                Clock c = new Clock();
-                c.setVisible(true);
+                Registro r = new Registro();
+                r.setVisible(true);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
