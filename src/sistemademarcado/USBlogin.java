@@ -12,22 +12,21 @@ import javax.swing.JOptionPane;
 public class USBlogin {
 
     public void usblogin() {
-        
+
         Locale locale = Locale.getDefault();
         String lang = locale.getDisplayLanguage();
         String system_mensaje = "";
-        
+
         if (lang.equals("English")) {
-            
+
             system_mensaje = "Volume Serial Number is ";
-        }
-        else{
+        } else {
             system_mensaje = "El n�mero de serie del volumen es: ";
         }
-        
+
         String s[] = new String[7];
         String line = null;
-        String[] array = {"A86B-A918", "207D-46AA","4C52-6F65"};
+        String[] array = {"A86B-A918", "207D-46AA", "4C52-6F65"};
         String[] DriveLetters = {"D", "E", "F", "G", "H", "I", "J"};
         boolean comprobar = false;
 
@@ -52,30 +51,22 @@ public class USBlogin {
 
         }
 
-        
         for (int i = 0; i < s.length; i++) {
             for (int j = 0; j < array.length; j++) {
 
                 if (s[i].equals(array[j])) {
                     //new Login().setVisible(true);
                     comprobar = true;
-                } 
-                
-//                if (comprobar == true) {
-//                    new Login().setVisible(true);
-//                    break;
-//                }
+                }
 
             }
         }
-        
-         if (comprobar == true) {
+
+        if (comprobar == true) {
             new Login().setVisible(true);
-        }
-        
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Usb Key no válido", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }
 }
