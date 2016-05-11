@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import net.proteanit.sql.DbUtils;
 import java.util.*;
+import javax.swing.ImageIcon;
 
 /**
  * @author John Granados
@@ -13,9 +14,12 @@ public class Registro extends javax.swing.JFrame {
     /**
      * Creates new form Registro
      */
+    Conexion c;
     public Registro() {
         initComponents();
+        c=new Conexion();
         actualizar();
+        //setIconImage(new ImageIcon(getClass().getResource("")).getImage());
     }
 
     /**
@@ -488,14 +492,15 @@ public class Registro extends javax.swing.JFrame {
 
     private void eliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btnActionPerformed
 
-        Conexion CONN = new Conexion();
+        //Conexion CONN = new Conexion();
+       
         String Tipo = (String) tipo_cbx.getSelectedItem();
 
         if (Tipo.equals("Usuario")) {
             String idpersonal = idpersonal_txt.getText();
-            CONN.CONECTAR();
-            CONN.EJECUTAR("DELETE FROM personal WHERE id_personal = " + idpersonal + "");
-            CONN.CERRAR();
+            c.CONECTAR();
+            c.EJECUTAR("DELETE FROM personal WHERE id_personal = " + idpersonal + "");
+            c.CERRAR();
             JOptionPane.showMessageDialog(null, "¡Registro borrado exitosamente!");
             limpiar();
             actualizar();
@@ -503,14 +508,13 @@ public class Registro extends javax.swing.JFrame {
 
         else{
             String idpersonal = idpersonal_txt.getText();
-            CONN.CONECTAR();
-            CONN.EJECUTAR("DELETE FROM admin WHERE id_admin = " + idpersonal + "");
-            CONN.CERRAR();
+            c.CONECTAR();
+            c.EJECUTAR("DELETE FROM admin WHERE id_admin = " + idpersonal + "");
+            c.CERRAR();
             JOptionPane.showMessageDialog(null, "¡Registro borrado exitosamente!");
             limpiar();
             actualizar();
         }
-        
         limpiar();
 
     }//GEN-LAST:event_eliminar_btnActionPerformed
@@ -541,31 +545,43 @@ public class Registro extends javax.swing.JFrame {
 
         try {
 
-            String myDriver = "org.gjt.mm.mysql.Driver";
-            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
+//            String myDriver = "org.gjt.mm.mysql.Driver";
+//            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
+//            Class.forName(myDriver);
+//            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
 
             if (Tipo.equals("Usuario")) {
-                String query = ("UPDATE sistema_marcado.personal SET nombre_personal = '" + nombre + "', apellido_personal='" + apellido + "',"
+                String query = ("UPDATE sql5119093.personal SET nombre_personal = '" + nombre + "', apellido_personal='" + apellido + "',"
                     + "direccion_personal = '" + direccion + "',cedula_personal = '" + cedula + "',pass_personal = '" + passString + "',fechnac_personal = '" + fechnac + "',area_personal = '" + area + "',"
                     + "cargo_personal= '" + cargo + "',nacionalidad_personal = '" + nacionalidad + "',telefono_personal = '" + telefono + "',celular_personal ='" + celular + "',email_personal = '" + email + "',genero_personal = '" + genero + "'"
                     + "WHERE personal.id_personal = '" + id + "';");
-
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                boolean sql;
+                c.CONECTAR();
+                sql=c.EJECUTAR(query);
+                c.CERRAR();
+                if(sql){
+                    JOptionPane.showMessageDialog(null, "Datos modifiados correctamente!");
+                }
+                /*PreparedStatement preparedStmt = conn.prepareStatement(query);
                 preparedStmt.execute();
-                conn.close();
+                conn.close();*/
             }
 
             else{
-                String query = ("UPDATE sistema_marcado.admin SET nombre_admin = '" + nombre + "', apellido_admin='" + apellido + "',"
+                String query = ("UPDATE sql5119093.admin SET nombre_admin = '" + nombre + "', apellido_admin='" + apellido + "',"
                     + "direccion_admin = '" + direccion + "',cedula_admin = '" + cedula + "',pass_admin = '" + passString + "',fechnac_admin = '" + fechnac + "',area_admin = '" + area + "',"
                     + "cargo_admin= '" + cargo + "',nacionalidad_admin = '" + nacionalidad + "',telefono_admin = '" + telefono + "',celular_admin ='" + celular + "',email_admin = '" + email + "',genero_admin = '" + genero + "'"
                     + "WHERE personal.id_admin = '" + id + "';");
-
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
-                preparedStmt.execute();
-                conn.close();
+                boolean sql;
+                c.CONECTAR();
+                sql=c.EJECUTAR(query);
+                c.CERRAR();
+                if(sql){
+                    JOptionPane.showMessageDialog(null, "Datos modifiados correctamente!");
+                }
+//                PreparedStatement preparedStmt = conn.prepareStatement(query);
+//                preparedStmt.execute();
+//                conn.close();
             }
 
         } catch (Exception e) {
@@ -580,10 +596,10 @@ public class Registro extends javax.swing.JFrame {
 
         try {
 
-            String myDriver = "org.gjt.mm.mysql.Driver";
-            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
+//            String myDriver = "org.gjt.mm.mysql.Driver";
+//            String myUrl = "jdbc:mysql://localhost/sistema_marcado";
+//            Class.forName(myDriver);
+//            Connection conn = DriverManager.getConnection(myUrl, "root", "123");
 
             String Tipo = (String) tipo_cbx.getSelectedItem();
             String nombre = nombre_txt.getText();
@@ -610,20 +626,25 @@ public class Registro extends javax.swing.JFrame {
                 String query = " insert into personal (id_personal,nombre_personal, apellido_personal, direccion_personal, cedula_personal, pass_personal,fechnac_personal,area_personal,cargo_personal,nacionalidad_personal,telefono_personal,celular_personal,email_personal,genero_personal)"
                 + "values (NULL,'" + nombre + "', '" + apellido + "','" + direccion + "','" + cedula + "','" + passString + "','" + fechnac + "','" + area + "','" + cargo + "','" + nacionalidad + "','" + telefono + "',"
                 + "'" + celular + "','" + email + "','" + genero + "');";
-
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
-                preparedStmt.execute();
-                conn.close();
+                c.CONECTAR();
+                c.EJECUTAR(query);
+                c.CERRAR();
+//                PreparedStatement preparedStmt = conn.prepareStatement(query);
+//                preparedStmt.execute();
+//                conn.close();
             }
 
             else{
                 String query = " insert into admin (id_admin,nombre_admin, apellido_admin, direccion_admin, cedula_admin, pass_admin,fechnac_admin,area_admin,cargo_admin,nacionalidad_admin,telefono_admin,celular_admin,email_admin,genero_admin)"
                 + "values (NULL,'" + nombre + "', '" + apellido + "','" + direccion + "','" + cedula + "','" + passString + "','" + fechnac + "','" + area + "','" + cargo + "','" + nacionalidad + "','" + telefono + "',"
                 + "'" + celular + "','" + email + "','" + genero + "');";
-
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
-                preparedStmt.execute();
-                conn.close();
+                
+                c.CONECTAR();
+                c.EJECUTAR(query);
+                c.CERRAR();
+//                PreparedStatement preparedStmt = conn.prepareStatement(query);
+//                preparedStmt.execute();
+//                conn.close();
 
             }
 
@@ -644,11 +665,11 @@ public class Registro extends javax.swing.JFrame {
             int row = jTable1.getSelectedRow();
             String Table_click = (jTable1.getModel().getValueAt(row, 0).toString());
 
-            Conexion CONN = new Conexion();
-            CONN.CONECTAR();
+//            Conexion CONN = new Conexion();
+              c.CONECTAR();
 
             if (Tipo.equals("Usuario")) {
-                ResultSet rs = CONN.CONSULTAR("SELECT * FROM personal WHERE id_personal='" + Table_click + "'");
+                ResultSet rs = c.CONSULTAR("SELECT * FROM personal WHERE id_personal='" + Table_click + "'");
 
                 if (rs.next()) {
 
@@ -677,7 +698,7 @@ public class Registro extends javax.swing.JFrame {
                     String celular = rs.getString("celular_personal");
                     cel_txt.setText(celular);
                     String email = rs.getString("email_personal");
-                    email_txt.setText(apellido);
+                    email_txt.setText(email);
                     String genero = rs.getString("genero_personal");
                     if (genero.equals("Masculino")) {
                         jRadioButton1.setSelected(true);
@@ -686,12 +707,10 @@ public class Registro extends javax.swing.JFrame {
                         jRadioButton2.setSelected(true);
                     }
 
-                    CONN.CERRAR();
-
                 }
             }
             else{
-                ResultSet rs = CONN.CONSULTAR("SELECT * FROM admin WHERE id_admin='" + Table_click + "'");
+                ResultSet rs = c.CONSULTAR("SELECT * FROM admin WHERE id_admin='" + Table_click + "'");
 
                 if (rs.next()) {
 
@@ -720,7 +739,7 @@ public class Registro extends javax.swing.JFrame {
                     String celular = rs.getString("celular_admin");
                     cel_txt.setText(celular);
                     String email = rs.getString("email_admin");
-                    email_txt.setText(apellido);
+                    email_txt.setText(email);
                     String genero = rs.getString("genero_admin");
                     if (genero.equals("Masculino")) {
                         jRadioButton1.setSelected(true);
@@ -729,9 +748,8 @@ public class Registro extends javax.swing.JFrame {
                         jRadioButton2.setSelected(true);
                     }
 
-                    CONN.CERRAR();
-
                 }
+                c.CERRAR();
             }
 
         } catch (Exception e) {
@@ -777,22 +795,23 @@ public class Registro extends javax.swing.JFrame {
 
     public void actualizar() {
         String Tipo = (String) tipo_cbx.getSelectedItem();
-        Conexion CONN = new Conexion();
-        CONN.CONECTAR();
+        //Conexion CONN = new Conexion();
+        c.CONECTAR();
         
         if (Tipo.equals("Usuario")) {
-            ResultSet rs = CONN.CONSULTAR("SELECT id_personal AS ID, nombre_personal AS Nombre, direccion_personal AS Dirección, cedula_personal AS Cédula, pass_personal AS Contraseña,"
+            ResultSet rs = c.CONSULTAR("SELECT id_personal AS ID, nombre_personal AS Nombre, direccion_personal AS Dirección, cedula_personal AS Cédula, pass_personal AS Contraseña,"
                 + "fechnac_personal AS Fecha, area_personal AS Área, cargo_personal AS Cargo, nacionalidad_personal AS Nacionalidad, telefono_personal AS Teléfono,"
                 + "celular_personal AS Celular, email_personal AS Email, genero_personal AS Género FROM personal order by id_personal ASC");
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         }
         
         else{
-            ResultSet rs = CONN.CONSULTAR("SELECT id_admin AS ID, nombre_admin AS Nombre, direccion_admin AS Dirección, cedula_admin AS Cédula, pass_admin AS Contraseña,"
+            ResultSet rs = c.CONSULTAR("SELECT id_admin AS ID, nombre_admin AS Nombre, direccion_admin AS Dirección, cedula_admin AS Cédula, pass_admin AS Contraseña,"
                 + "fechnac_admin AS Fecha, area_admin AS Área, cargo_admin AS Cargo, nacionalidad_admin AS Nacionalidad, telefono_admin AS Teléfono,"
                 + "celular_admin AS Celular, email_admin AS Email, genero_admin AS Género FROM admin order by id_admin ASC");
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         }
+        c.CERRAR();
     }
 
     /**

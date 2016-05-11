@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  * @author John Granados
@@ -12,15 +13,14 @@ import java.sql.SQLException;
 public class Conexion {
    
     //****** DATOS DE LA CONEXION **********************
-    public String servidor = "localhost";
-    public String nameDB = "sistema_marcado";
-    public String login = "root";
-    public String password = "123";
+    public String servidor = "sql5.freemysqlhosting.net";
+    public String nameDB = "sql5119093";
+    public String login = "sql5119093";
+    public String password = "nJSuX8k2wl";
     //**************************************************
     
     public String url = "jdbc:mysql://"+servidor+":3306/"+nameDB;
     public Connection Link = null;
-    
     //METODO CONECTAR A LA BASE DE DATOS
     public boolean CONECTAR()
     {   try
@@ -80,6 +80,7 @@ public class Conexion {
         }
         catch(SQLException ex)
         {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
             return false;
         }
     }
