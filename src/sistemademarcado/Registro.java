@@ -3,6 +3,7 @@ package sistemademarcado;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import net.proteanit.sql.DbUtils;
+import java.util.*;
 
 /**
  * @author John Granados
@@ -66,8 +67,8 @@ public class Registro extends javax.swing.JFrame {
         idpersonal_lbl = new javax.swing.JLabel();
         idpersonal_txt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        area_cbx = new javax.swing.JComboBox<>();
-        tipo_cbx = new javax.swing.JComboBox<>();
+        area_cbx = new javax.swing.JComboBox<String>();
+        tipo_cbx = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -103,6 +104,13 @@ public class Registro extends javax.swing.JFrame {
         pass_lbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         pass_lbl.setForeground(new java.awt.Color(255, 255, 255));
         pass_lbl.setText("Contraseña");
+
+        pass_txt.setEchoChar('•');
+        pass_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pass_txtActionPerformed(evt);
+            }
+        });
 
         fechnac_lbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         fechnac_lbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,12 +226,12 @@ public class Registro extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemademarcado/uamlogo.png"))); // NOI18N
 
-        area_cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Académico", "Administración", "Contabilidad", "Informática", "Seguridad", "Limpieza", "Audiovisual", "Legal" }));
+        area_cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Académico", "Administración", "Contabilidad", "Informática", "Seguridad", "Limpieza", "Audiovisual", "Legal" }));
         area_cbx.setToolTipText("");
 
         tipo_cbx.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tipo_cbx.setForeground(new java.awt.Color(0, 153, 0));
-        tipo_cbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
+        tipo_cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Usuario" }));
         tipo_cbx.setSelectedIndex(1);
         tipo_cbx.setToolTipText("");
         tipo_cbx.addActionListener(new java.awt.event.ActionListener() {
@@ -442,9 +450,8 @@ public class Registro extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)))))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))))
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -741,6 +748,15 @@ public class Registro extends javax.swing.JFrame {
         limpiar();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pass_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_txtActionPerformed
+        Random rnd = new Random();
+        int pass = rnd.nextInt(9999 - 1000 + 1) + 1000;
+        String password = Integer.toString(pass);
+        pass_txt.setText(password);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_pass_txtActionPerformed
 
     public void limpiar() {
 
