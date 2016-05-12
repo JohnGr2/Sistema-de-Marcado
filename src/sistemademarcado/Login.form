@@ -164,6 +164,9 @@
               <Connection code="&apos;&#x2022;&apos;" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_passKeyPressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

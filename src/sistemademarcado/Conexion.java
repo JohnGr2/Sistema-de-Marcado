@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
 public class Conexion {
    
     //****** DATOS DE LA CONEXION **********************
-    public String servidor = "sql5.freemysqlhosting.net";
-    public String nameDB = "sql5119093";
-    public String login = "sql5119093";
-    public String password = "nJSuX8k2wl";
+    public String servidor = "localhost";//"sql5.freemysqlhosting.net";
+    public String nameDB = "sistema_marcado";//"sql5119093";
+    public String login = "root";//"sql5119093";
+    public String password = "123";//"nJSuX8k2wl";
     //**************************************************
     
     public String url = "jdbc:mysql://"+servidor+":3306/"+nameDB;

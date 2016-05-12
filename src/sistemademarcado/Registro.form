@@ -17,6 +17,21 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -42,20 +57,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -78,16 +85,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="tipo_cbx" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <EmptySpace min="307" pref="307" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="area_lbl" max="32767" attributes="0"/>
                               <Component id="fechnac_lbl" alignment="1" pref="175" max="32767" attributes="0"/>
@@ -95,78 +101,70 @@
                               <Component id="ced_lbl" alignment="1" max="32767" attributes="0"/>
                               <Component id="dir_lbl" alignment="1" max="32767" attributes="0"/>
                               <Component id="apellido_lbl" alignment="1" max="32767" attributes="0"/>
-                              <Component id="idpersonal_lbl" alignment="0" max="32767" attributes="0"/>
                               <Component id="nombre_lbl" alignment="0" max="32767" attributes="0"/>
+                              <Component id="id_lbl" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fechnac_txt" alignment="1" max="32767" attributes="0"/>
-                              <Component id="pass_txt" alignment="1" max="32767" attributes="0"/>
-                              <Component id="ced_txt" alignment="1" max="32767" attributes="0"/>
-                              <Component id="dir_txt" alignment="1" max="32767" attributes="0"/>
-                              <Component id="apellido_txt" alignment="1" max="32767" attributes="0"/>
-                              <Component id="idpersonal_txt" pref="306" max="32767" attributes="0"/>
-                              <Component id="nombre_txt" pref="306" max="32767" attributes="0"/>
-                              <Component id="area_cbx" max="32767" attributes="0"/>
+                              <Component id="pass_txt" alignment="1" pref="272" max="32767" attributes="0"/>
+                              <Component id="dir_txt" alignment="1" pref="272" max="32767" attributes="0"/>
+                              <Component id="apellido_txt" alignment="1" pref="272" max="32767" attributes="0"/>
+                              <Component id="nombre_txt" pref="272" max="32767" attributes="0"/>
+                              <Component id="area_cbx" pref="272" max="32767" attributes="0"/>
+                              <Component id="fechnac_txt" pref="272" max="32767" attributes="0"/>
+                              <Component id="idpersonal_txt" alignment="0" pref="272" max="32767" attributes="0"/>
+                              <Component id="ced_txt" pref="272" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="cargo_lbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="email_lbl" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cel_lbl" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tel_lbl" alignment="0" max="32767" attributes="0"/>
                                       <Component id="nac_lbl" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="tel_lbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="cel_lbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="email_lbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="genero_lbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="cargo_lbl" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="genero_lbl" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="email_txt" linkSize="10" alignment="0" pref="300" max="32767" attributes="0"/>
+                                              <Component id="cargo_txt" linkSize="10" alignment="0" pref="300" max="32767" attributes="0"/>
+                                              <Component id="nac_cbx" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              <Component id="tel_txt" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="79" max="32767" attributes="0"/>
+                                      </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="nac_txt" linkSize="10" alignment="1" min="-2" pref="341" max="-2" attributes="0"/>
-                                              <Component id="tel_txt" linkSize="10" alignment="1" min="-2" pref="341" max="-2" attributes="0"/>
-                                              <Component id="cel_txt" linkSize="10" alignment="1" min="-2" pref="341" max="-2" attributes="0"/>
-                                              <Component id="email_txt" linkSize="10" alignment="1" min="-2" pref="341" max="-2" attributes="0"/>
-                                              <Component id="cargo_txt" linkSize="10" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButton2" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="cel_txt" min="-2" pref="300" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton2" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="guardar_btn" linkSize="7" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Component id="jLabel2" min="-2" pref="57" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="guardar_btn" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="2" attributes="0">
                                       <Group type="102" alignment="2" attributes="0">
-                                          <Component id="modificar_btn" linkSize="7" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Component id="modificar_btn" linkSize="7" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="eliminar_btn" linkSize="7" min="-2" pref="82" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -181,26 +179,26 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jButton1" linkSize="7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="79" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" max="32767" attributes="0"/>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" pref="143" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="tipo_cbx" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="271" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -208,20 +206,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="tipo_cbx" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cargo_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cargo_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="idpersonal_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="idpersonal_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="id_lbl" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="cargo_lbl" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -241,7 +237,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="ced_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ced_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ced_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -249,9 +245,9 @@
                               <Component id="pass_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="fechnac_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fechnac_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="fechnac_lbl" min="-2" max="-2" attributes="0"/>
+                              <Component id="fechnac_txt" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -260,38 +256,22 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nac_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nac_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="nac_lbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tel_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tel_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="tel_lbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cel_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cel_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="cel_lbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="email_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="email_txt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="email_lbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="genero_lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="genero_lbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="modificar_btn" linkSize="8" alignment="0" max="32767" attributes="0"/>
                               <Component id="eliminar_btn" linkSize="8" alignment="0" max="32767" attributes="0"/>
                               <Component id="cancelar_btn" linkSize="8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="guardar_btn" linkSize="8" max="32767" attributes="0"/>
                               <Component id="jButton1" linkSize="8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="guardar_btn" linkSize="11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="modificar_btn" linkSize="11" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -303,9 +283,34 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="332" max="-2" attributes="0"/>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="106" pref="106" max="-2" attributes="0"/>
+                          <Component id="cargo_txt" linkSize="6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="nac_cbx" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="tel_txt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="cel_txt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="email_txt" linkSize="6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="108" pref="108" max="-2" attributes="0"/>
+                          <Component id="idpersonal_txt" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="498" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -361,8 +366,6 @@
             <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ced_txt">
-        </Component>
         <Component class="javax.swing.JLabel" name="pass_lbl">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -395,13 +398,6 @@
             <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="fechnac_txt">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="area_lbl">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -425,6 +421,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cargo_txt">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargo_txtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="nac_lbl">
           <Properties>
@@ -437,8 +436,6 @@
             <Property name="text" type="java.lang.String" value="Nacionalidad"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nac_txt">
-        </Component>
         <Component class="javax.swing.JLabel" name="tel_lbl">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -450,8 +447,6 @@
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tel_txt">
-        </Component>
         <Component class="javax.swing.JLabel" name="cel_lbl">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -462,8 +457,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Celular"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="cel_txt">
         </Component>
         <Component class="javax.swing.JLabel" name="email_lbl">
           <Properties>
@@ -637,7 +630,7 @@
         <Component class="javax.swing.JButton" name="guardar_btn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/save.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\save.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -651,7 +644,7 @@
         <Component class="javax.swing.JButton" name="modificar_btn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/edit.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\edit.png"/>
             </Property>
           </Properties>
           <Events>
@@ -661,7 +654,7 @@
         <Component class="javax.swing.JButton" name="eliminar_btn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/eliminar.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\eliminar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -671,34 +664,18 @@
         <Component class="javax.swing.JButton" name="cancelar_btn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/cancelar.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\cancelar.png"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelar_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="idpersonal_lbl">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ID"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="idpersonal_txt">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/uamlogo.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\uamlogo.png"/>
             </Property>
           </Properties>
         </Component>
@@ -793,7 +770,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/sistemademarcado/clear.png"/>
+              <Image iconType="2" name="C:\Users\JGran\Pictures\clear.png"/>
             </Property>
           </Properties>
           <Events>
@@ -809,6 +786,55 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
+          </Properties>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="fechnac_txt">
+          <Properties>
+            <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="nac_cbx">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="ced_txt">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.JFormattedTextField.AbstractFormatterFactory() {&#xa;&#xa;   public javax.swing.JFormattedTextField.AbstractFormatter&#xa;    getFormatter(javax.swing.JFormattedTextField tf) {&#xa;&#xa;        try{&#xa;            return new javax.swing.text.MaskFormatter(&quot;###-######-####U&quot;);&#xa;&#xa;        } catch(java.text.ParseException pe){&#xa;&#xa;            pe.printStackTrace();&#xa;        }&#xa;&#xa;        return null;&#xa;    }&#xa;}&#xa;&#xa;" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="id_lbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ID"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="idpersonal_txt">
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="tel_txt">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.JFormattedTextField.AbstractFormatterFactory() {&#xa;&#xa;   public javax.swing.JFormattedTextField.AbstractFormatter&#xa;    getFormatter(javax.swing.JFormattedTextField tf) {&#xa;&#xa;        try{&#xa;            return new javax.swing.text.MaskFormatter(&quot;####-####&quot;);&#xa;&#xa;        } catch(java.text.ParseException pe){&#xa;&#xa;            pe.printStackTrace();&#xa;        }&#xa;&#xa;        return null;&#xa;    }&#xa;}" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="cel_txt">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.JFormattedTextField.AbstractFormatterFactory() {&#xa;&#xa;   public javax.swing.JFormattedTextField.AbstractFormatter&#xa;    getFormatter(javax.swing.JFormattedTextField tf) {&#xa;&#xa;        try{&#xa;            return new javax.swing.text.MaskFormatter(&quot;####-####&quot;);&#xa;&#xa;        } catch(java.text.ParseException pe){&#xa;&#xa;            pe.printStackTrace();&#xa;        }&#xa;&#xa;        return null;&#xa;    }&#xa;}&#xa;" type="code"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

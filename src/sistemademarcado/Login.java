@@ -5,6 +5,7 @@
  */
 package sistemademarcado;
 
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -54,6 +55,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("CONTRASEÑA");
 
         txt_usuario.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        txt_usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         logo_uam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemademarcado/uamlogo.png"))); // NOI18N
 
@@ -68,6 +70,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         txt_pass.setEchoChar('•');
+        txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,6 +168,39 @@ public class Login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_entrarActionPerformed
+
+    private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
+ 
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            Conexion CONN = new Conexion();
+            CONN.CONECTAR();
+
+            String usuario = txt_usuario.getText();
+            char[] password = txt_pass.getPassword();
+
+            ResultSet rs = CONN.CONSULTAR("SELECT cedula_admin, pass_admin FROM `admin` WHERE cedula_admin = '" + usuario + "' && pass_admin = '" + String.valueOf(password) + "';");
+
+            try {
+                if (rs.next()) {
+
+                    JOptionPane.showMessageDialog(null, "Login exitoso!");
+                    CONN.CERRAR();
+                    dispose();
+
+                    Registro r = new Registro();
+                    r.setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                }
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, e);
+
+            }
+        }
+    }//GEN-LAST:event_txt_passKeyPressed
 
     /**
      * @param args the command line arguments
