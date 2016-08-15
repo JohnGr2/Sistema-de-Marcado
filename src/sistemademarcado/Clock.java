@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sistemademarcado;
+import metodos.newPass;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;

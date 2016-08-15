@@ -1,4 +1,4 @@
-package sistemademarcado;
+package metodos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
 public class Conexion {
    
     //****** DATOS DE LA CONEXION **********************
-    public String servidor = "localhost";//"sql5.freemysqlhosting.net";
-    public String nameDB = "sistema_marcado";//"sql5119093";
+    public String servidor = "127.0.0.1"; 
+    public String nameDB = "sistema_marcado";////"sql5119093";
     public String login = "root";//"sql5119093";
-    public String password = "123";//"nJSuX8k2wl";
+    public String password =  "J0hnGr2195";//"nJSuX8k2wl";
     //**************************************************
     
     public String url = "jdbc:mysql://"+servidor+":3306/"+nameDB;

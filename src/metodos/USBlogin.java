@@ -1,10 +1,11 @@
-package sistemademarcado;
+package metodos;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import sistemademarcado.Login;
 
 /**
  * @author John Granados
@@ -26,7 +27,7 @@ public class USBlogin {
 
         String s[] = new String[7];
         String line = null;
-        String[] array = {"A86B-A918", "207D-46AA", "4C52-6F65"};
+        String[] array = {"A86B-A918", "207D-46AA", "4C52-6F65", "246D-9B16"};
         String[] DriveLetters = {"D", "E", "F", "G", "H", "I", "J"};
         boolean comprobar = false;
 
@@ -55,7 +56,6 @@ public class USBlogin {
             for (int j = 0; j < array.length; j++) {
 
                 if (s[i].equals(array[j])) {
-                    //new Login().setVisible(true);
                     comprobar = true;
                 }
 

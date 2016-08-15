@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package sistemademarcado;
+package metodos;
 
 import java.util.Properties;
 import java.util.logging.Level;

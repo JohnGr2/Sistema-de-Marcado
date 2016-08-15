@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemademarcado;
+package metodos;
 
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import sistemademarcado.Clock;
 
 /**
  *

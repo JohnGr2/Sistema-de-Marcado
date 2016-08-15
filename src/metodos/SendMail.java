@@ -1,4 +1,4 @@
-package sistemademarcado;
+package metodos;
 
 import java.util.Properties;
 import javax.mail.Session;

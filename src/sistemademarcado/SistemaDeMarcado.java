@@ -5,7 +5,7 @@
  */
 package sistemademarcado;
 
-import java.util.Locale;
+import metodos.USBlogin;
 
 /**
  * @author JGran
@@ -16,10 +16,9 @@ public class SistemaDeMarcado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         USBlogin login = new USBlogin();
         login.usblogin();
-       
     }
-    
+
 }
